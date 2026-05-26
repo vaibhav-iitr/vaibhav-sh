@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Now — Vaibhav Shrivastava</title>
+  <meta name="description" content="What Vaibhav Shrivastava is currently building, reading, and thinking about." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaibhav.sh/now" />
+  <meta property="og:title" content="Now — Vaibhav Shrivastava" />
+  <meta property="og:description" content="What Vaibhav Shrivastava is currently building, reading, and thinking about." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #080e1c;
+      --navy-mid: #0d1628;
+      --navy-lit: #162040;
+      --accent:   #c8d8f8;
+      --muted:    #5a7096;
+      --white:    #f0f4ff;
+      --border:   rgba(200, 216, 248, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(30,60,120,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(15,35,80,0.3) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .now-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+    }
+
+    .now-section {
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .now-section:nth-child(1) { animation-delay: 0.3s; }
+    .now-section:nth-child(2) { animation-delay: 0.42s; }
+    .now-section:nth-child(3) { animation-delay: 0.54s; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .now-items {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .now-title {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .now-body {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: rgba(240, 244, 255, 0.65);
+    }
+
+    .now-body em {
+      font-style: italic;
+      color: rgba(240, 244, 255, 0.82);
+    }
+
+    .updated {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 56px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.65s forwards;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.72s forwards;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+    .footer-nav-link.active { color: var(--accent); }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 56px 24px 48px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a href="/" class="back-link">← vaibhav.sh</a>
+
+    <header class="header">
+      <p class="eyebrow">Last updated — May 2026</p>
+      <h1>Now</h1>
+    </header>
+
+    <div class="rule"></div>
+
+    <div class="now-sections">
+
+      <div class="now-section">
+        <p class="section-label">Building</p>
+        <div class="now-items">
+          <div>
+            <strong class="now-title">Agent OS</strong>
+            <p class="now-body">A multi-agent professional operating system — Donna, Captain, Sherlock, and others — built on plain files, no infrastructure. Publishing soon.</p>
+          </div>
+          <div>
+            <strong class="now-title">Trust Debt</strong>
+            <p class="now-body">A book on how organisations accumulate structural trust failures through small, pragmatic decisions. Writing in progress.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="now-section">
+        <p class="section-label">Reading</p>
+        <div class="now-items">
+          <div>
+            <p class="now-body"><em>Designing Machine Learning Systems</em> — Chip Huyen. The most technically honest ML book I've read.</p>
+          </div>
+          <div>
+            <p class="now-body"><em>Fall in Love with the Problem, Not the Solution</em> — Uri Levine. The founder's version of product clarity.</p>
+          </div>
+          <div>
+            <p class="now-body">Re-reading <em>The Courage to Be Disliked</em> — Kishimi. Some books earn a second pass.</p>
+          </div>
+          <div>
+            <p class="now-body">Listening to Lenny's Podcast and The Knowledge Project.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="now-section">
+        <p class="section-label">Thinking about</p>
+        <div class="now-items">
+          <div>
+            <p class="now-body">Whether the next generation of important companies gets built by teams of eight, not eight hundred — and what that means for how people like me should be spending the next decade.</p>
+          </div>
+          <div>
+            <p class="now-body">What it takes to stay sharp physically when the work is relentless.</p>
+          </div>
+          <div>
+            <p class="now-body">What I want my kids to inherit from me that isn't money.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="updated">Updated May 2026 — I try to keep this current.</p>
+
+    <footer>
+      <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link active">Now</a>
+        <a href="/writing" class="footer-nav-link">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>

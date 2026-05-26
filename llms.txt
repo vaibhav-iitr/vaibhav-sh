@@ -1,0 +1,42 @@
+# Vaibhav Shrivastava — vaibhav.sh
+
+> Product and engineering leader. Head of Supplier Fraud at Booking.com, Amsterdam. Building systems that make digital economies trustworthy. Writing about AI for product managers. Working on Agent OS and Trust Debt.
+
+## About
+
+Vaibhav Shrivastava is the Head of Supplier Fraud at Booking.com, operating at Director level, leading a 100+ person cross-functional organisation across Amsterdam, Bucharest, Bangalore, and the UK. Background: software developer, co-founder and CTO of an acquired fintech startup (Ruplee), technical PM at Xiaomi and CoinTribe, fraud leadership at Booking.com since 2020.
+
+Core focus: platform integrity, applied AI/ML, agentic systems, operator-led product building.
+
+## Pages
+
+- /: Homepage — who Vaibhav is, current projects, writing, contact
+- /now: What Vaibhav is currently building, reading, and thinking about (updated monthly)
+- /writing: Selected writing from the AI for PMs — One Day at a Time series
+- /agent-os: Agent OS — a working set of AI agents one operator uses every day (open source)
+
+## Writing
+
+Primary publication: AI for PMs — One Day at a Time
+URL: https://pmstories.substack.com
+Topic: Building with AI as a product leader — prompting, agentic systems, applied AI in product work
+
+Second publication: The Integrity Brief
+URL: https://theintegritybrief.substack.com
+Topic: Fraud, trust, marketplace integrity, and the Trust Debt concept
+
+## Projects
+
+Agent OS — open source multi-agent professional operating system
+URL: https://github.com/vaibhav-iitr/agent-os
+Description: A working set of named AI agents (Donna, Captain, Sherlock, Alfred, Roy, Jarvis, Oracle) built on plain files, no infrastructure. Published May 2026.
+
+Trust Debt — book in progress
+Topic: How organisations accumulate structural trust failures through small, pragmatic decisions.
+
+## Contact
+
+Email: via contact form at vaibhav.sh
+LinkedIn: https://www.linkedin.com/in/vaibhavshri
+GitHub: https://github.com/vaibhav-iitr
+Twitter/X: https://x.com/opinionVaibhav

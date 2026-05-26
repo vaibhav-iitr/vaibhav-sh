@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Writing — Vaibhav Shrivastava</title>
+  <meta name="description" content="Selected writing by Vaibhav Shrivastava on AI for product managers — building with AI, agentic systems, and the future of product work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaibhav.sh/writing" />
+  <meta property="og:title" content="Writing — Vaibhav Shrivastava" />
+  <meta property="og:description" content="Selected writing on AI for product managers — building with AI, agentic systems, and the future of product work." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #080e1c;
+      --navy-mid: #0d1628;
+      --navy-lit: #162040;
+      --accent:   #c8d8f8;
+      --muted:    #5a7096;
+      --white:    #f0f4ff;
+      --border:   rgba(200, 216, 248, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(30,60,120,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(15,35,80,0.3) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+      margin-bottom: 24px;
+    }
+
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: var(--navy-mid);
+      text-decoration: none;
+      color: var(--white);
+      transition: background 0.2s;
+      border-bottom: 1px solid var(--border);
+    }
+    .link-item:last-child { border-bottom: none; }
+    .link-item:hover { background: var(--navy-lit); }
+
+    .link-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .post-num {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      min-width: 18px;
+      padding-top: 3px;
+    }
+
+    .link-label {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .link-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .link-arrow {
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: transform 0.2s, color 0.2s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+    .link-item:hover .link-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+    }
+
+    .substack-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.45s forwards;
+    }
+    .substack-cta:hover { color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      margin-top: 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.55s forwards;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+    .footer-nav-link.active { color: var(--accent); }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 56px 24px 48px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-nav { justify-content: center; }
+      .link-item { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a href="/" class="back-link">← vaibhav.sh</a>
+
+    <header class="header">
+      <p class="eyebrow">AI for PMs — One Day at a Time</p>
+      <h1>Writing</h1>
+      <p class="tagline">Selected from the daily series on building with AI as a product leader.</p>
+    </header>
+
+    <div class="rule"></div>
+
+    <div class="links">
+
+      <a class="link-item" href="https://pmstories.substack.com/p/why-im-starting-this-and-why-i-should" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">01</span>
+          <div>
+            <div class="link-label">Why I'm Starting This — And Why I Should Have Started Yesterday</div>
+            <div class="link-sub">The founding piece. Why a fraud leader started writing about AI.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/how-to-think-in-prompts-the-single" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">02</span>
+          <div>
+            <div class="link-label">How to Think in Prompts — The Single Skill That Changes Everything</div>
+            <div class="link-sub">The one mental shift that separates people who get results from people who get noise.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/your-ai-memory-file-is-already-lying" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">03</span>
+          <div>
+            <div class="link-label">Your AI Memory File Is Already Lying to You</div>
+            <div class="link-sub">What most people get wrong about context — and how to fix it.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/the-pm-brain-ai-brain-how-they-work" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">04</span>
+          <div>
+            <div class="link-label">The PM Brain + AI Brain — How They Work Together</div>
+            <div class="link-sub">How product thinking and AI capability compound when you wire them correctly.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/how-to-build-a-multi-agent-system" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">05</span>
+          <div>
+            <div class="link-label">How to Build a Multi-Agent System That Works While You Think</div>
+            <div class="link-sub">From concept to running agents — a practical build walkthrough.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/build-log-what-happened-when-i-turned" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">06</span>
+          <div>
+            <div class="link-label">Build Log: What Happened When I Turned a Substack Article Into a Product in One Day</div>
+            <div class="link-sub">An idea to a live product in a single session — a real build log.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://pmstories.substack.com/p/build-the-tool-your-team-needs" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">07</span>
+          <div>
+            <div class="link-label">Build the Tool Your Team Needs</div>
+            <div class="link-sub">The operating principle behind building for your own context, not someone else's.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+    </div>
+
+    <a class="substack-cta" href="https://pmstories.substack.com/archive" target="_blank" rel="noopener">
+      View full archive on Substack →
+    </a>
+
+    <footer>
+      <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link">Now</a>
+        <a href="/writing" class="footer-nav-link active">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>

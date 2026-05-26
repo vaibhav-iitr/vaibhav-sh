@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#080e1c"/>
+  <!-- Gradient overlays matching site -->
+  <defs>
+    <radialGradient id="g1" cx="70%" cy="20%" r="60%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1e3c78" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#080e1c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="10%" cy="80%" r="50%" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0f2350" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#080e1c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <!-- Eyebrow -->
+  <text x="80" y="210" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="400" fill="#5a7096" letter-spacing="5">AMSTERDAM · NETHERLANDS</text>
+  <!-- Name — two lines to match site h1 -->
+  <text x="80" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="400" fill="#f0f4ff" letter-spacing="-2">Vaibhav</text>
+  <text x="80" y="388" font-family="Georgia, 'Times New Roman', serif" font-size="80" font-weight="400" fill="#f0f4ff" letter-spacing="-2">Shrivastava</text>
+  <!-- Tagline -->
+  <text x="80" y="450" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" fill="#c8d8f8" letter-spacing="1">Scaling Trust in the AI Economy</text>
+  <!-- Divider line -->
+  <line x1="80" y1="490" x2="120" y2="490" stroke="#c8d8f8" stroke-opacity="0.15" stroke-width="1"/>
+  <!-- Domain -->
+  <text x="80" y="570" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#5a7096" letter-spacing="3">vaibhav.sh</text>
+</svg>

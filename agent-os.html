@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agent OS — Vaibhav Shrivastava</title>
+  <meta name="description" content="A working set of AI agents one operator uses every day — with a runtime that dispatches them on demand from any device via Slack. Not a framework. Not a product." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaibhav.sh/agent-os" />
+  <meta property="og:title" content="Agent OS — Vaibhav Shrivastava" />
+  <meta property="og:description" content="A working set of AI agents one operator uses every day. Not a framework. Not a product." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:     #080e1c;
+      --navy-mid: #0d1628;
+      --navy-lit: #162040;
+      --accent:   #c8d8f8;
+      --muted:    #5a7096;
+      --white:    #f0f4ff;
+      --border:   rgba(200, 216, 248, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(30,60,120,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(15,35,80,0.3) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .prose {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+      margin-bottom: 48px;
+    }
+
+    .prose p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(240, 244, 255, 0.7);
+      margin-bottom: 20px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* Agents grid */
+    .agents {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+      margin-bottom: 52px;
+    }
+
+    .agent-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .agent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 16px 22px;
+      background: var(--navy-mid);
+      border-bottom: 1px solid var(--border);
+    }
+    .agent-item:last-child { border-bottom: none; }
+
+    .agent-name {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--white);
+      min-width: 72px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .agent-desc {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: rgba(240, 244, 255, 0.55);
+    }
+
+    /* Patterns */
+    .patterns {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+      margin-bottom: 52px;
+    }
+
+    .pattern-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .pattern-item {}
+
+    .pattern-title {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+    .pattern-body {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: rgba(240, 244, 255, 0.55);
+    }
+
+    /* CTA */
+    .cta {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.58s forwards;
+      margin-bottom: 56px;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cta-link:hover {
+      background: var(--navy-lit);
+      border-color: rgba(200,216,248,0.25);
+    }
+    .cta-link svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--muted);
+      flex-shrink: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.65s forwards;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 56px 24px 48px; }
+      .agent-item { flex-direction: column; gap: 6px; }
+      .agent-name { min-width: unset; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <a href="/" class="back-link">← vaibhav.sh</a>
+
+    <header class="header">
+      <p class="eyebrow">Open source — 2026</p>
+      <h1>Agent OS</h1>
+      <p class="tagline">A working set of AI agents one operator uses every day.<br>Not a framework. Not a library. Not a product.</p>
+    </header>
+
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p>Running anything serious solo means losing the parts of work that a good team gives you. Not just hands. Someone who keeps the board, someone who pushes back on a half-baked decision, someone who notices that the same problem has come up three weeks in a row. Those are not assistant tasks. They are colleague tasks.</p>
+      <p>The premise behind this set is that a well-instructed agent, given a clear role and a stable protocol, can hold a meaningful slice of that colleague work. Each agent has a name and a persona — borrowed from television and film — because a persona is a compression algorithm for tone. Naming an agent "Research Agent" produces flat output. The persona is the highest-leverage piece of instruction in any agent's protocol.</p>
+      <p>The agent protocols shipped to GitHub in May 2026. Two weeks later, a Slack listener went on top: a persistent daemon that watches a private channel, resolves an agent name from the mention, fires a Claude session in that agent's working directory, and posts the result back in-thread. The command is <code style="font-family:monospace;font-size:0.88em;color:var(--accent)">@Agent OS captain run a 12-role debate on this</code>. It works from a phone on a train. The runtime layer ships to the public repo in June 2026.</p>
+    </div>
+
+    <div class="agents">
+      <p class="section-label">The agents</p>
+      <div class="agent-list">
+        <div class="agent-item">
+          <span class="agent-name">Donna</span>
+          <span class="agent-desc">The keystone. Tracks every task across every agent, runs daily and weekly briefs, surfaces anything overdue, stalled, or quietly aging. Everything else hangs off her.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Captain</span>
+          <span class="agent-desc">Runs a twelve-role engineering debate before any technical decision. Architect, PM, ML scientist, QA, OpEx, launch and risk — each speaks specifically, each pushes back, the Chief breaks ties. Dissent stays visible.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Sherlock</span>
+          <span class="agent-desc">Does the same for non-engineering decisions. Frames the question, draws out the position, notes what could falsify it.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Alfred</span>
+          <span class="agent-desc">Evaluates the rest of the agents on seven dimensions and proposes amendments. Reports directly to the operator. Anyone evaluating the rest of the system needs an unfiltered line to the principal.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Roy</span>
+          <span class="agent-desc">Keeps the operating system of the agents healthy. Stale state files, broken cross-references, missing credentials — Roy notices and routes them.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Jarvis</span>
+          <span class="agent-desc">Writes a pre-meeting brief. Who is in the room, what they last talked about, what is likely to come up, what to watch for.</span>
+        </div>
+        <div class="agent-item">
+          <span class="agent-name">Oracle</span>
+          <span class="agent-desc">An honest artifact. Started as a standing research agent and was demoted to an invocation pattern in April 2026 — on-demand research is a tool you reach for, not an agent you maintain. The demotion is included because it is part of the story.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="patterns">
+      <p class="section-label">Patterns worth stealing</p>
+      <div class="pattern-list">
+        <div class="pattern-item">
+          <strong class="pattern-title">A debate-then-decide protocol beats a single-pass recommendation.</strong>
+          <p class="pattern-body">Captain's twelve-role structure is slower than asking one assistant the same question. It is also better. The dissent stays visible. A decision that survived an internal argument tends to survive contact with reality.</p>
+        </div>
+        <div class="pattern-item">
+          <strong class="pattern-title">Agents that evaluate agents are non-negotiable above a certain size.</strong>
+          <p class="pattern-body">Once there are more than three or four agents in regular use, there is no way for the operator to notice the slow drift in any one of them. Alfred is the answer to that.</p>
+        </div>
+        <div class="pattern-item">
+          <strong class="pattern-title">An always-on listener changes the dispatch economics.</strong>
+          <p class="pattern-body">The bottleneck in a file-based agent system is not the agent — it is remembering to open the tool, find the agent, and start the session. A listener that watches a Slack channel removes that friction entirely. The same protocol that worked at a desk now works on a train.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="cta-link" href="https://github.com/vaibhav-iitr/agent-os" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        View on GitHub — vaibhav-iitr/agent-os
+      </a>
+    </div>
+
+    <footer>
+      <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link">Now</a>
+        <a href="/writing" class="footer-nav-link">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
+    </footer>
+
+  </div>
+</body>
+</html>
