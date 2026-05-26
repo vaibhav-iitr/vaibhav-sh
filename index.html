@@ -9,12 +9,32 @@
   <meta property="og:url" content="https://vaibhav.sh" />
   <meta property="og:title" content="Vaibhav Shrivastava" />
   <meta property="og:description" content="Building systems that make digital economies trustworthy. Head of Supplier Fraud at Booking.com. Writing about AI for PMs. Working on Trust Debt." />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vaibhav Shrivastava" />
   <meta name="twitter:description" content="Building systems that make digital economies trustworthy. Head of Supplier Fraud at Booking.com. Writing about AI for PMs. Working on Trust Debt." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.svg" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Vaibhav Shrivastava",
+    "url": "https://vaibhav.sh",
+    "jobTitle": "Head of Supplier Fraud",
+    "worksFor": { "@type": "Organization", "name": "Booking.com" },
+    "description": "Building systems that make digital economies trustworthy. Head of Supplier Fraud at Booking.com. Writing about AI for PMs. Working on Trust Debt.",
+    "sameAs": [
+      "https://www.linkedin.com/in/vaibhavshri",
+      "https://github.com/vaibhav-iitr",
+      "https://pmstories.substack.com",
+      "https://theintegritybrief.substack.com"
+    ]
+  }
+  </script>
   <style>
     :root {
       --navy:     #080e1c;
@@ -299,6 +319,54 @@
       min-height: 120px;
     }
 
+    select {
+      width: 100%;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 14px 16px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a7096' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+    }
+
+    select:focus { border-color: rgba(200,216,248,0.35); }
+    select option { background: var(--navy-mid); color: var(--white); }
+
+    /* ── Thesis pull-quote ── */
+    .thesis {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--accent);
+      border-left: 2px solid rgba(200,216,248,0.15);
+      padding-left: 20px;
+      margin: 0 0 52px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.35s forwards;
+    }
+
+    /* ── Footer nav ── */
+    .footer-nav { display: flex; align-items: center; gap: 20px; }
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+
     .form-note {
       font-size: 0.78rem;
       color: var(--muted);
@@ -393,15 +461,17 @@
       for <strong>40M+ users at Xiaomi</strong>, to heading fraud prevention and customer
       trust at <strong>Booking.com</strong> — the through-line has always been the same:
       complex trust problems at the intersection of product, data, and human behaviour.<br><br>
-      Alongside the operating role, I build. <strong>Resume Lens</strong>, an AI-powered resume
-      analysis tool, shipped end-to-end in a single session — a test of how far a product leader
-      can execute without engineering intermediaries. <strong>Agent OS</strong>, a multi-agent
-      professional operating system, publishes later this year. I write about this daily in
-      <em>AI for PMs — One Day at a Time</em>, and am working on a book, <em>Trust Debt</em>,
-      on how organisations accumulate structural trust failures through small, pragmatic decisions.<br><br>
+      Alongside the operating role, I build. <strong>Resume Lens</strong> — an AI resume
+      analyser shipped end-to-end in a single Claude Code session — is live. <strong>Agent OS</strong>,
+      a multi-agent professional operating system, publishes this year. I write about this daily
+      in <em>AI for PMs — One Day at a Time</em> and am working on a book, <em>Trust Debt</em>,
+      on how organisations accumulate structural trust failures.<br><br>
       I invest in and advise founders building the next generation of digital platforms in
       fintech, marketplace, and AI.
     </p>
+
+    <!-- Thesis pull-quote -->
+    <blockquote class="thesis">"The next wave of platform failures won't come from fraud — they'll come from organisations that optimised for growth while accumulating trust debt they never measured."</blockquote>
 
     <!-- Pillars -->
     <div class="pillars">
@@ -444,7 +514,7 @@
         <span class="link-arrow">→</span>
       </a>
 
-      <div class="link-item link-item--muted">
+      <a class="link-item" href="https://theintegritybrief.substack.com" target="_blank" rel="noopener">
         <div class="link-left">
           <div class="link-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -456,8 +526,30 @@
             <div class="link-sub">Trust, fraud and platform integrity in the AI economy</div>
           </div>
         </div>
-        <span class="link-soon">Soon</span>
-      </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="/agent-os">
+        <div class="link-left">
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <circle cx="12" cy="3.5" r="2.5"/>
+              <circle cx="4" cy="18.5" r="2.5"/>
+              <circle cx="20" cy="18.5" r="2.5"/>
+              <rect x="11.25" y="6" width="1.5" height="6" rx="0.75"/>
+              <rect x="5.5" y="17.75" width="7" height="1.5" rx="0.75"/>
+              <rect x="11.5" y="17.75" width="7" height="1.5" rx="0.75"/>
+              <rect x="7.1" y="11" width="1.5" height="7.2" rx="0.75" transform="rotate(-30 7.1 11)"/>
+              <rect x="13.9" y="11" width="1.5" height="7.2" rx="0.75" transform="rotate(30 13.9 11)"/>
+            </svg>
+          </div>
+          <div>
+            <div class="link-label">Agent OS</div>
+            <div class="link-sub">A working set of AI agents one operator uses every day — open source</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
 
       <a class="link-item" href="https://resumelens-olive.vercel.app" target="_blank" rel="noopener">
         <div class="link-left">
@@ -502,8 +594,16 @@
           <input type="text" name="name" placeholder="Your name" required />
           <input type="email" name="email" placeholder="Your email" required />
         </div>
-        <input type="text" name="subject" placeholder="What's this about? (Advisory / Investment / Other)" />
+        <select name="subject">
+          <option value="" disabled selected>What's this about?</option>
+          <option value="Advisory engagement">Advisory engagement</option>
+          <option value="Angel investment">Angel investment pitch</option>
+          <option value="Speaking or podcast">Speaking or podcast</option>
+          <option value="Press">Press</option>
+          <option value="Other">Other</option>
+        </select>
         <textarea name="message" placeholder="Tell me about what you're building..." required></textarea>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
         <p class="form-note">Your message goes directly to my inbox. I read everything.</p>
         <button type="submit">Send message</button>
         <div class="success-msg" id="successMsg">
@@ -515,7 +615,11 @@
     <!-- Footer -->
     <footer>
       <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
-      <span class="footer-domain">vaibhav.sh</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link">Now</a>
+        <a href="/writing" class="footer-nav-link">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
     </footer>
 
   </div>
