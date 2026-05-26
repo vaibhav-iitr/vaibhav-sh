@@ -16,11 +16,22 @@ html[data-theme="light"] body::before {
     radial-gradient(ellipse 50% 40% at 10% 80%, rgba(160, 185, 230, 0.08) 0%, transparent 55%);
 }
 
-/* Override hardcoded rgba text colours (0.55–0.82 on #f0f4ff → dark equivalent) */
-html[data-theme="light"] .prose p,
+/* Override hardcoded rgba text colours (light bg equivalents) */
+html[data-theme="light"] .bio {
+  color: rgba(13, 22, 40, 0.72);
+}
+
+html[data-theme="light"] .contact-intent {
+  color: rgba(13, 22, 40, 0.55);
+}
+
+html[data-theme="light"] .prose p {
+  color: rgba(13, 22, 40, 0.70);
+}
+
 html[data-theme="light"] .pattern-body,
 html[data-theme="light"] .agent-desc {
-  color: rgba(13, 22, 40, 0.65);
+  color: rgba(13, 22, 40, 0.55);
 }
 
 html[data-theme="light"] .now-body {
