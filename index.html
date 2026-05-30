@@ -258,6 +258,40 @@
       padding: 3px 8px;
     }
 
+    /* ── Subscribe ── */
+    .subscribe-section {
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.58s forwards;
+    }
+
+    .subscribe-intent {
+      font-size: 0.88rem;
+      color: rgba(240,244,255,0.55);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .subscribe-btn {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(200,216,248,0.25);
+      border-radius: 3px;
+      padding: 11px 22px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .subscribe-btn:hover {
+      background: rgba(200,216,248,0.07);
+      border-color: rgba(200,216,248,0.45);
+      color: var(--white);
+    }
+
     /* ── Contact ── */
     .contact-section {
       margin-bottom: 52px;
@@ -588,6 +622,13 @@
       </a>
     </div>
 
+    <!-- Subscribe CTA -->
+    <div class="subscribe-section">
+      <p class="section-label">Follow the series</p>
+      <p class="subscribe-intent">Daily writing on building with AI as a product leader — from someone doing it in practice.</p>
+      <a class="subscribe-btn" href="https://pmstories.substack.com/subscribe" target="_blank" rel="noopener">Subscribe on Substack →</a>
+    </div>
+
     <!-- Contact -->
     <div class="contact-section">
       <p class="section-label">Get in touch</p>
@@ -622,7 +663,7 @@
 
     <!-- Footer -->
     <footer>
-      <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
+      <span class="footer-name">Operator · Builder · Investor</span>
       <nav class="footer-nav">
         <a href="/now" class="footer-nav-link">Now</a>
         <a href="/writing" class="footer-nav-link">Writing</a>

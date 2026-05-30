@@ -182,6 +182,32 @@
       color: var(--accent);
     }
 
+    .series-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.25s forwards;
+    }
+
+    .series-label--second {
+      margin-top: 48px;
+      animation-delay: 0.5s;
+    }
+
+    .series-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0 0;
+    }
+
+    .links--second {
+      animation-delay: 0.5s;
+    }
+
     .substack-cta {
       display: inline-flex;
       align-items: center;
@@ -260,12 +286,14 @@
     <a href="/" class="back-link">← vaibhav.sh</a>
 
     <header class="header">
-      <p class="eyebrow">AI for PMs — One Day at a Time</p>
+      <p class="eyebrow">Two series · One through-line</p>
       <h1>Writing</h1>
-      <p class="tagline">Selected from the daily series on building with AI as a product leader.</p>
+      <p class="tagline">On building with AI as a product leader — and on the trust failures reshaping digital platforms.</p>
     </header>
 
     <div class="rule"></div>
+
+    <p class="series-label">AI for PMs — One Day at a Time</p>
 
     <div class="links">
 
@@ -352,8 +380,42 @@
       View full archive on Substack →
     </a>
 
+    <div class="series-divider"></div>
+
+    <p class="series-label series-label--second">The Integrity Brief — Trust, fraud, and platform integrity in the AI economy</p>
+
+    <div class="links links--second">
+
+      <a class="link-item" href="https://theintegritybrief.substack.com/p/coming-soon" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">01</span>
+          <div>
+            <div class="link-label">This is The Integrity Brief</div>
+            <div class="link-sub">Why a fraud operator started writing about trust — and what this publication is for.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a class="link-item" href="https://theintegritybrief.substack.com/p/trust-debt" target="_blank" rel="noopener">
+        <div class="link-left">
+          <span class="post-num">02</span>
+          <div>
+            <div class="link-label">Trust Debt</div>
+            <div class="link-sub">The problem isn't that something went wrong. It's how it was built to go wrong.</div>
+          </div>
+        </div>
+        <span class="link-arrow">→</span>
+      </a>
+
+    </div>
+
+    <a class="substack-cta" href="https://theintegritybrief.substack.com" target="_blank" rel="noopener">
+      Follow The Integrity Brief on Substack →
+    </a>
+
     <footer>
-      <span class="footer-name">Head of Supplier Fraud · Booking.com</span>
+      <span class="footer-name">Operator · Builder · Investor</span>
       <nav class="footer-nav">
         <a href="/now" class="footer-nav-link">Now</a>
         <a href="/writing" class="footer-nav-link active">Writing</a>
