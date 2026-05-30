@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invest — Vaibhav Shrivastava</title>
+  <meta name="description" content="Vaibhav Shrivastava invests in early-stage companies in fintech, marketplace, and AI where trust is the business model, not a feature." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaibhav.sh/invest" />
+  <meta property="og:title" content="Invest — Vaibhav Shrivastava" />
+  <meta property="og:description" content="Backing founders building companies where trust is the business model, not a feature." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.svg" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/theme.css?v=2">
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
+  <style>
+    :root {
+      --navy:     #080e1c;
+      --navy-mid: #0d1628;
+      --navy-lit: #162040;
+      --accent:   #c8d8f8;
+      --muted:    #5a7096;
+      --white:    #f0f4ff;
+      --border:   rgba(200, 216, 248, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(30,60,120,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(15,35,80,0.3) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .invest-section {
+      margin-bottom: 44px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .invest-section:nth-child(1) { animation-delay: 0.3s; }
+    .invest-section:nth-child(2) { animation-delay: 0.42s; }
+    .invest-section:nth-child(3) { animation-delay: 0.54s; }
+    .invest-section:nth-child(4) { animation-delay: 0.64s; }
+
+    .invest-section p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(240, 244, 255, 0.7);
+      margin-bottom: 14px;
+    }
+    .invest-section p:last-child { margin-bottom: 0; }
+
+    .cta {
+      margin-top: 8px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.72s forwards;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cta-link:hover {
+      background: var(--navy-lit);
+      border-color: rgba(200,216,248,0.25);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      margin-top: 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 56px 24px 48px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+  <div class="wrap">
+
+    <a href="/" class="back-link">← vaibhav.sh</a>
+
+    <header class="header">
+      <p class="eyebrow">Angel Investment</p>
+      <h1>Invest</h1>
+      <p class="tagline">Backing founders building companies where trust is the business model, not a feature.</p>
+    </header>
+
+    <div class="rule"></div>
+
+    <div class="invest-sections">
+
+      <div class="invest-section">
+        <p class="section-label">Investment thesis</p>
+        <p>I invest in early-stage companies in fintech, marketplace, and AI where the core product challenge is earning and maintaining trust — at scale, under adversarial conditions, without sacrificing growth.</p>
+        <p>The companies I find most interesting are ones where integrity is structural. Where a failure of trust is not a policy problem or a PR event, but an existential one. That is the space I have operated in for fifteen years, and the space I understand from the inside.</p>
+      </div>
+
+      <div class="invest-section">
+        <p class="section-label">What I bring beyond capital</p>
+        <p>Fifteen years at the intersection of product, data, and trust: founding a digital payments business that was acquired, leading financial products for 40M+ users, and running marketplace integrity at Booking.com at the scale where trust failures become company-level events.</p>
+        <p>If you are building in payment infrastructure, marketplace quality, AI-native risk, identity, or any domain where the core question is "how do you know this is real?" — I can be a thinking partner on the product and operating architecture behind it.</p>
+      </div>
+
+      <div class="invest-section">
+        <p class="section-label">What I'm not looking for</p>
+        <p>Consumer social without a trust or integrity challenge at the core. Pre-revenue concepts without a specific problem to solve. Founders looking for a name on a cap table more than a thinking partner who will push back.</p>
+      </div>
+
+      <div class="cta">
+        <a class="cta-link" href="/#contactForm">
+          Get in touch — select "Angel investment pitch" →
+        </a>
+      </div>
+
+    </div>
+
+    <footer>
+      <span class="footer-name">Operator · Builder · Investor</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link">Now</a>
+        <a href="/writing" class="footer-nav-link">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
+    </footer>
+
+  </div>
+  <script src="/theme.js" defer></script>
+</body>
+</html>
