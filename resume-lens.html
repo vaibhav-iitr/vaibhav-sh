@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Lens — Vaibhav Shrivastava</title>
+  <meta name="description" content="A four-reader resume analyser — algorithmic, AI-scored, and bring-your-own-key — built to surface what hiring systems actually see." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaibhav.sh/resume-lens" />
+  <meta property="og:title" content="Resume Lens — Vaibhav Shrivastava" />
+  <meta property="og:description" content="A four-reader resume analyser — algorithmic, AI-scored, and bring-your-own-key — built to surface what hiring systems actually see." />
+  <meta property="og:image" content="https://vaibhav.sh/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vaibhav.sh/og-image.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/theme.css?v=2">
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(t==='light')document.documentElement.setAttribute('data-theme','light');}());</script>
+  <style>
+    :root {
+      --navy:     #080e1c;
+      --navy-mid: #0d1628;
+      --navy-lit: #162040;
+      --accent:   #c8d8f8;
+      --muted:    #5a7096;
+      --white:    #f0f4ff;
+      --border:   rgba(200, 216, 248, 0.1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 20%, rgba(30,60,120,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(15,35,80,0.3) 0%, transparent 55%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 60px;
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    .header {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+
+    .prose {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+      margin-bottom: 48px;
+    }
+
+    .prose p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: rgba(240, 244, 255, 0.7);
+      margin-bottom: 20px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .patterns {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+      margin-bottom: 52px;
+    }
+
+    .pattern-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .pattern-item {}
+
+    .pattern-title {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 5px;
+    }
+
+    .pattern-body {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: rgba(240, 244, 255, 0.55);
+    }
+
+    .cta {
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.5s forwards;
+      margin-bottom: 56px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .cta-link:hover {
+      background: var(--navy-lit);
+      border-color: rgba(200,216,248,0.25);
+    }
+    .cta-link svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--muted);
+      flex-shrink: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.58s forwards;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-nav-link {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    .footer-nav-link:hover { color: var(--accent); }
+
+    .footer-domain {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 56px 24px 48px; }
+      .cta { flex-direction: column; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+      .footer-nav { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+  <div class="wrap">
+
+    <a href="/" class="back-link">← vaibhav.sh</a>
+
+    <header class="header">
+      <p class="eyebrow">Live product — April 2026</p>
+      <h1>Resume Lens</h1>
+      <p class="tagline">A four-reader resume analyser — algorithmic, AI-scored, and bring-your-own-key — built to surface what hiring systems actually see.</p>
+    </header>
+
+    <div class="rule"></div>
+
+    <div class="prose">
+      <p>Most resume feedback is either too shallow or too late. A friend reads it and says it looks fine. A career coach charges by the hour and tells you to use more action verbs. By the time an actual recruiter sees it, the ATS has already filtered it out and the hiring manager has moved on. The people who would give useful feedback — the recruiter who shortlisted ten candidates this morning, the interviewer who spent forty minutes with someone who looked great on paper and wasn't, the hiring manager who knows exactly what the role demands — are not available to you.</p>
+      <p>Resume Lens was built end-to-end in a single Claude Code session. One session: architecture decision, stack selection, implementation across six route files and a dozen components, auth wiring, a managed KV data store, PDF extraction, and production deployment. Not a prototype. A full-stack application with three analysis engines — a free algorithmic scorer, a Groq-powered AI layer, and a bring-your-own-key mode for users who want unlimited analysis without a paid tier. The whole thing was designed, built, debugged, and shipped in the time it takes a team to align on a sprint.</p>
+      <p>That is the signal worth naming. The boundary of what a product manager can execute without an engineering team has moved. Not incrementally — structurally. Resume Lens is not a no-code tool or a template. It is a production application with a custom scoring engine, auth, and a managed data layer. The question for any PM who has ever had a product idea stall in the backlog is no longer whether it is technically possible. It is whether they are willing to sit down and build it.</p>
+    </div>
+
+    <div class="patterns">
+      <p class="section-label">Patterns worth stealing</p>
+      <div class="pattern-list">
+        <div class="pattern-item">
+          <strong class="pattern-title">Simulate the actual readers, not a generic reviewer.</strong>
+          <p class="pattern-body">The four-reader structure — ATS, Recruiter, Interviewer, Hiring Manager — forces specificity. Each reader has different failure modes and different information about the candidate. Collapsing them into a single score produces cleaner output and less useful feedback. The friction in the model is the feature.</p>
+        </div>
+        <div class="pattern-item">
+          <strong class="pattern-title">Ship the BYOK tier before you build a monetisation layer.</strong>
+          <p class="pattern-body">Offering bring-your-own-key removes the question of whether users trust you with their API costs. It also separates people who are serious about the product from those who bounce after the free tier runs out. That split is more valuable than the modest friction it adds to onboarding.</p>
+        </div>
+        <div class="pattern-item">
+          <strong class="pattern-title">Three-engine architecture as a trust ladder.</strong>
+          <p class="pattern-body">The algorithmic engine is instant and requires no signup — users see something working before they hand over credentials. The free AI tier adds depth. BYOK removes all limits for the committed user. Each rung qualifies the next.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="cta-link" href="https://resumelens-olive.vercel.app" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg>
+        Open Resume Lens
+      </a>
+      <a class="cta-link" href="https://github.com/vaibhav-iitr/resume-lens" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        View on GitHub — vaibhav-iitr/resume-lens
+      </a>
+    </div>
+
+    <footer>
+      <span class="footer-name">Operator · Builder · Investor</span>
+      <nav class="footer-nav">
+        <a href="/now" class="footer-nav-link">Now</a>
+        <a href="/writing" class="footer-nav-link">Writing</a>
+        <span class="footer-domain">vaibhav.sh</span>
+      </nav>
+    </footer>
+
+  </div>
+  <script src="/theme.js" defer></script>
+</body>
+</html>
