@@ -311,7 +311,8 @@
     <div class="prose">
       <p>Running anything serious solo means losing the parts of work that a good team gives you. Not just hands. Someone who keeps the board, someone who pushes back on a half-baked decision, someone who notices that the same problem has come up three weeks in a row. Those are not assistant tasks. They are colleague tasks.</p>
       <p>The premise behind this set is that a well-instructed agent, given a clear role and a stable protocol, can hold a meaningful slice of that colleague work. Each agent has a name and a persona — borrowed from television and film — because a persona is a compression algorithm for tone. Naming an agent "Research Agent" produces flat output. The persona is the highest-leverage piece of instruction in any agent's protocol.</p>
-      <p>The agent protocols shipped to GitHub in May 2026. Two weeks later, a Slack listener went on top: a persistent daemon that watches a private channel, resolves an agent name from the mention, fires a Claude session in that agent's working directory, and posts the result back in-thread. The command is <code style="font-family:monospace;font-size:0.88em;color:var(--accent)">@Agent OS captain run a 12-role debate on this</code>. It works from a phone on a train. The runtime layer ships to the public repo in June 2026.</p>
+      <p>The agent protocols shipped to GitHub in May 2026. Two weeks later, a Slack listener went on top: a persistent daemon that watches a private channel, resolves an agent name from the mention, fires a Claude session in that agent's working directory, and posts the result back in-thread. The command is <code style="font-family:monospace;font-size:0.88em;color:var(--accent)">@Agent OS captain run a 12-role debate on this</code>. It works from a phone on a train.</p>
+      <p>In June 2026, three things extended the set. Morpheus — a behavioral coaching agent that watches the operator, not the tasks, and surfaces patterns unprompted in a weekly review. MEETING-CAPTURE and ORCHESTRATE modes in Donna — one for extracting decisions and routing actions from meeting transcripts, one for parallel multi-agent dispatch with synthesis. And a small runtime tool that bridges Claude.ai conversation history into the agent OS: drop an export zip, relevant conversations are extracted, committed as markdown, and made available to any agent that needs prior context — without any agent loading them by default.</p>
     </div>
 
     <div class="agents">
@@ -346,6 +347,10 @@
           <span class="agent-desc">Runs the content operation. Takes research, observations, and lived experience and turns them into the AI for PMs series on LinkedIn and Substack. A content agent whose output is publicly visible is also a test of whether the rest of the system is actually producing anything worth saying.</span>
         </div>
         <div class="agent-item">
+          <span class="agent-name">Morpheus</span>
+          <span class="agent-desc">Watches the operator, not the tasks. Reads session logs across all agents, tracks behavioral patterns, and surfaces drift unprompted in a weekly review. Dispatched by Donna after key decisions to reflect on what the session revealed. Does not report back immediately — waits until the evidence is strong enough to say something worth hearing.</span>
+        </div>
+        <div class="agent-item">
           <span class="agent-name">Oracle</span>
           <span class="agent-desc">An honest artifact. Started as a standing research agent and was demoted to an invocation pattern in April 2026 — on-demand research is a tool you reach for, not an agent you maintain. The demotion is included because it is part of the story.</span>
         </div>
@@ -366,6 +371,10 @@
         <div class="pattern-item">
           <strong class="pattern-title">The persona is the highest-leverage piece of instruction.</strong>
           <p class="pattern-body">A persona encodes tone, posture, willingness to push back. The personas are not load-bearing for adoption — swap them for whoever fits your own context. The discipline that matters is having a named, distinct voice for each role.</p>
+        </div>
+        <div class="pattern-item">
+          <strong class="pattern-title">The system needs an agent that watches the operator, not just the work.</strong>
+          <p class="pattern-body">Every other agent executes. Morpheus observes. Behavioral patterns — the ones that compound silently and show up as stalled decisions or scope that keeps expanding — are not visible inside any single session. They require someone reading across sessions. The weekly review is not a ceremony. It is the mechanism by which the operator catches themselves.</p>
         </div>
         <div class="pattern-item">
           <strong class="pattern-title">An always-on listener changes the dispatch economics.</strong>
