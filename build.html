@@ -122,6 +122,7 @@
     .build-section:nth-child(1) { animation-delay: 0.3s; }
     .build-section:nth-child(2) { animation-delay: 0.42s; }
     .build-section:nth-child(3) { animation-delay: 0.54s; }
+    .build-section:nth-child(4) { animation-delay: 0.66s; }
 
     .section-label {
       font-size: 11px;
@@ -254,11 +255,34 @@
       <p class="eyebrow">Building</p>
       <h1>Build</h1>
       <p class="tagline">Fifteen years of shipping — from a payments startup I co-founded to AI tools I build alone on weekends. What I'm working on now and what came before.</p>
+      <p class="tagline" style="margin-top:12px;font-size:0.9rem;opacity:0.8">Fraud, payments and credit-risk ML: from building MiCredit and CoinTribe's underwriting engine to running fraud at Booking.com.</p>
     </header>
 
     <div class="rule"></div>
 
     <div class="build-sections">
+
+      <!-- OPERATING -->
+      <div class="build-section">
+        <p class="section-label">Operating</p>
+        <div class="project-list">
+
+          <div class="project no-link">
+            <div class="project-body">
+              <span class="project-name">Booking.com <span class="status-pill status-live">since Aug 2019</span></span>
+              <span class="project-desc">(Global) Head of Supplier Fraud. An organisation of 80+ people across 3 continents. Fraud costs down 43% while supply grew 62% in strategic markets.</span>
+            </div>
+          </div>
+
+          <div class="project no-link">
+            <div class="project-body">
+              <span class="project-name">Shipped</span>
+              <span class="project-desc">Transaction screening, commission avoidance detection, partner account takeover detection and trust scoring. An AI investigation agent and ML for partner verification are being introduced now.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       <!-- LIVE -->
       <div class="build-section">
@@ -284,7 +308,7 @@
           <a class="project" href="https://github.com/vaibhav-iitr/agent-os" target="_blank" rel="noopener">
             <div class="project-body">
               <span class="project-name">Agent OS <span class="status-pill status-live">live</span></span>
-              <span class="project-desc">A working multi-agent operating system for a single operator — nine specialised agents, MCP-connected, running daily. Open source.</span>
+              <span class="project-desc">A multi-agent operating system for a single operator, MCP-connected and running daily. This public version has nine agents; my work version runs ten. Open source.</span>
             </div>
             <span class="project-arrow">→</span>
           </a>
@@ -322,21 +346,21 @@
           <div class="project no-link">
             <div class="project-body">
               <span class="project-name">Ruplee <span class="status-pill status-built">acquired 2016</span></span>
-              <span class="project-desc">Co-founded and built a digital payments platform from zero — product, engineering, and regulatory infrastructure. 500,000 customers. Acquired 2016.</span>
+              <span class="project-desc">Co-Founder &amp; CTO. In-restaurant payments app for fine-dining restaurants in India, ~$1M monthly volume, 300K+ registered users. Acquired by Paylo in 2016.</span>
             </div>
           </div>
 
           <div class="project no-link">
             <div class="project-body">
-              <span class="project-name">MiCredit &amp; MiPay <span class="status-pill status-built">Xiaomi · 2017–2019</span></span>
-              <span class="project-desc">Built credit and payments products inside Xiaomi's India financial services division. 40 million users. Zero-to-one product work in a market that moves faster than most.</span>
+              <span class="project-name">MiCredit &amp; MiPay <span class="status-pill status-built">Xiaomi · 2018–2019</span></span>
+              <span class="project-desc">Lead PM, Financial Services. Built MiCredit (lending) and MiPay (payments) from scratch across Southeast Asia and India. By late 2019, MiCredit reached ~$3.9M in monthly loan disbursals and MiPay ~20M users, ~$85M in estimated monthly payments.</span>
             </div>
           </div>
 
           <div class="project no-link">
             <div class="project-body">
-              <span class="project-name">Credit Risk Platform <span class="status-pill status-built">CoinTribe · 2016–2017</span></span>
-              <span class="project-desc">Built a Bank Statement Analyser and ML-based credit risk scoring and underwriting system for SME and SMB lending — one of the earlier applications of machine learning to alternative credit assessment in Indian fintech.</span>
+              <span class="project-name">Credit Risk Platform <span class="status-pill status-built">CoinTribe · 2016–2018</span></span>
+              <span class="project-desc">Senior PM, Credit Risk Engine. Built the bank-statement analyzer and alternative-risk ML credit engine (SME loan decisions cut from 7 days to under 60 minutes), integrated with 8+ banks; the platform facilitated ~$5M in monthly disbursals, mostly through 4+ banks.</span>
             </div>
           </div>
 

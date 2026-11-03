@@ -4,7 +4,7 @@
 
 ## About
 
-Vaibhav Shrivastava is the Head of Supplier Fraud at Booking.com, operating at Director level, leading a 100+ person cross-functional organisation across Amsterdam, Bucharest, Bangalore, and the UK. Background: software developer, co-founder and CTO of an acquired fintech startup (Ruplee), technical PM at Xiaomi and CoinTribe, fraud leadership at Booking.com since 2020.
+Vaibhav Shrivastava is the Head of Supplier Fraud at Booking.com, operating at Director level, leading a 80+ person cross-functional organisation across Amsterdam, Bucharest, Bangalore, and the UK. Background: software developer, co-founder and CTO of an acquired fintech startup (Ruplee), technical PM at Xiaomi and CoinTribe, Head of Supplier Fraud at Booking.com since August 2019.
 
 Core focus: platform integrity, applied AI/ML, agentic systems, operator-led product building.
 
